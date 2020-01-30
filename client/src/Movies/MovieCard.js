@@ -1,7 +1,9 @@
 import React from 'react';
+import {Link} from "react-router-dom";
+import UpdateForm from "./updateForm";
 
 const MovieCard = props => {
-  const { title, director, metascore, stars } = props.movie;
+  const { id, title, director, metascore, stars } = props.movie;
   return (
     <div className="movie-card">
       <h2>{title}</h2>
@@ -18,6 +20,11 @@ const MovieCard = props => {
           {star}
         </div>
       ))}
+        <button>
+            <Link to={`update-movie/${id}`}>
+                <UpdateForm/>
+            </Link>
+        </button>
     </div>
   );
 };
